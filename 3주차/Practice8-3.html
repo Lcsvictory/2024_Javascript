@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function show(){
+            let list = document.getElementsByTagName("span"); //TagName은 list를 반환한다.
+            for (i = 0; i < list.length; i++){
+                let style = window.getComputedStyle(list[i]); //list의 i번째 span요소에서 style에 관련된 정보를 가져옴.
+                if (style.getPropertyValue("visibility") == "hidden"){ //가져온 정보중 visibility요소가 hidden이라면.
+                    list[i].style.visibility = 'visible';
+                }else{ // 아니라면.
+                    list[i].style.visibility = 'hidden';
+                }
+            }
+            
+        }
+    </script>
+    <style>
+        span {
+            visibility: hidden;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h3>다음 빈 곳에 숨은 단어? <button onclick="show()">show/hide</button></h3>
+    <hr>
+    <ul>
+        <li>I (<span>love</span>) You.</li>
+        <li>CSS is Cascading (<span>style</span>) Sheet.</li>
+        <li>응답하라 (<span>1988</span>).</li>
+    </ul>
+</body>
+</html>

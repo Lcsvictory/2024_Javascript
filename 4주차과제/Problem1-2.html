@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭, 회전.</title>
+    <style>
+       img{
+        width: 150px;
+        margin-top: 10px;
+        rotate: 90;
+       }
+    </style>
+    <script>
+        let degree = 90;
+        function rotate(){
+            document.getElementById('bob').style.transform = `rotate(${degree%360}deg)`; //degree값이 계속 증가하는 문제가 있음. 
+            degree += 90
+        }
+    </script>
+</head>
+<body>
+    <h3>클릭하면 90도 회전합니다.</h3><hr>
+    <div>
+        <img id="bob" src="spongebob.png" alt="스폰지밥" onclick="rotate()">
+    </div>
+</body>
+</html>

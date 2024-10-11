@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback1</title>
+    <script>
+        function sumEvenNumers(callback){ // callback이 익명함수를 가르킴. 즉 callback = function(result){...}
+            let sum = 0;
+            for (let i = 0; i <= 100; i++){
+                if (i % 2 === 0){
+                    sum += i
+                }
+            }
+            callback(sum) // callback = function(result) result자리엔 sum이 들어감.
+        }
+        sumEvenNumers(function(result){ //callback매개변수 자리에 익명함수 얘 가 넘어감.
+            document.write("1부터 100까지 짝수의 합 : " + result);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

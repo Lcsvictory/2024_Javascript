@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback2</title>
+    <script>
+        let temp = 7
+        function factorial(n, callback){ // callback이 익명함수를 가르킴. 즉 callback = function(result){...}
+            let sum = 1;
+            for (let i = 1; i <= n; i++){
+                sum *= i
+            }
+            callback(sum) // callback = function(result) result자리엔 sum이 들어감.
+        }
+        factorial(temp, function(result, number){ //callback매개변수 자리에 익명함수 얘 가 넘어감.
+            document.write(temp + "팩토리얼 : " + result );
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

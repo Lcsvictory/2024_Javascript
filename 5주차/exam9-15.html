@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Image()로 이미지 로딩</title>
+    <script>
+        let files = [
+            "media/Penguins.png",
+            "media/Lighthouse.png",
+            "media/Chrysanthemum.png",
+            "media/Desert.png",
+            "media/Hydrangeas.png",
+            "media/Jellyfish.png",
+            "media/Koala.png",
+            "media/Tulips.png"
+        ]
+        let images = new Array()
+        for(let i = 0; i < files.length; i++){
+            images[i] = new Image();
+            images[i].src = files[i];
+        }
+        let next = 1;
+        function change(th){
+            th.src = images[next].src;
+            next++;
+            next = next % images.length;
+        }
+        function getSrc(){
+            return files[0];
+        }
+    </script>
+</head>
+
+<body>
+    <h3>new Image()로 이미지 로딩</h3><hr>
+    <p>이미지를 클릭하면 다음 이미지로 이동합니다.</p>
+    <img src="media/Penguins.png" width="200px" height="200px" alt="각종사진" 
+    style="border:20px ridge wheat" onclick="change(this)">
+</body>
+
+</html>

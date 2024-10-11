@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정답의 동적 삽입</title>
+</head>
+<script>
+    function flip(a){ // a = this; this = onclick 이벤트를 발생시킨 원인 객체. 여기선 button객체가 해당.
+        let q = a.value; // 눌린 버튼이 어떤 문제의 버튼인가?
+        let btnText = a.textContent; // 버튼의 현재 답보기/답닫기 상태를 확인.
+        if(q == '거울'){ // this(a)가 어떤 문제의 버튼인가 확인.
+            if(btnText == '답닫기'){ // 버튼이 답닫기 상태라면
+                a.textContent = '답보기';
+                document.getElementById('answer1').textContent = '';
+            }else{ // 버튼이 답보기 상태라면
+                document.getElementById('answer1').textContent = '백설공주';
+                a.textContent = '답닫기';
+            }
+        }else if(q == '죽느냐'){ //이하동문
+            if(btnText == '답닫기'){
+                a.textContent = '답보기';
+                document.getElementById('answer2').textContent = '';
+            }else{
+                document.getElementById('answer2').textContent = '둘다';
+                a.textContent = '답닫기';
+            }
+            
+        }
+    }
+</script>
+<body>
+    <h3>정답의 동적 삽입</h3><hr>
+    <p>Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+    <button type="button" onclick="flip(this)" value="거울">답보기</button>
+    <p id="answer1"></p>
+
+    <p>Q. 죽느냐 사느냐 어떤 것이 문제인가?</p>
+    <button type="button" onclick="flip(this)" value="죽느냐">답보기</button>
+    <p id="answer2"></p>
+</body>
+</html>

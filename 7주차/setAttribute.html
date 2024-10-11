@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rects = document.querySelectorAll('.rect');
+            rects.forEach((rect, i) => {
+                let file = `media/img${i+1}.png`;
+                rect.setAttribute('src', file);
+                rect.setAttribute('width', '200');
+                rect.setAttribute('height', '200');
+                rect.setAttribute('style.position', 'absolute');
+            })
+        })
+    </script>
+</head>
+<body>
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+    <img class="rect">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팩토리얼</title>
+    <style>
+        h1 {
+            background-color: black;
+            color: white;
+            width: 300px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function(){ //dom요소들이 전부 로딩이 끝난 후 이 익명함수를 실행하라. 이 익명함수가 없다면 body안에 태그들을 인식하지 못하게됨.
+        factorial(5, write); //우선 5팩토리얼 값을 출력
+        document.getElementsByTagName('button')[0].addEventListener('click', function(){ //제출 버튼의 클릭 이벤트가 감지되면
+            let n = document.getElementsByTagName('input')[0].value; // input창의 value를 가져온다.
+            factorial(n, write); //n팩토리얼 값을 출력 
+        });
+    }
+    function factorial(x, callback){
+        let result = 1;
+        for(let i = 1; i <= x; i++){
+            result *= i;
+        }
+        if (!x){ //숫자를 입력하지 않았다면 1팩토리얼값을 보여줌.
+            x = 1
+        }
+        callback(result, x);
+    }
+    function write(res, x){
+        document.getElementsByTagName('h1')[0].innerHTML = `${x}팩토리얼: ${res}`;
+    }
+</script>
+<body>
+    <input type="number" placeholder="x 입력. x팩토리얼 구하기"><button type="button">제출</button>
+    <h1></h1>
+</body>
+</html>

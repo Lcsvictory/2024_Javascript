@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index 스타일 프로퍼티</title>
+    <style>
+        div {
+            position: relative; 
+            /* reset 버튼과 상대적인 위치를 가지게 하려고. 
+            absolte였다면 reset버튼과 겹치게 됨. 
+            왜냐? div의 부모인 body를 기준으로 자신의 위치를 정하니까 reset버튼은 전혀 신경쓰질 않거든.*/ 
+        }
+        img{
+            position: absolute; /* 각각의 카드 이미지들이 절대적인 위치를 잡아야 겹치는것이 가능. 위에서의 reset버튼과 반대의 상황. */
+            top:20px; /* body의 content를 기준으로 20px 만큼 밑으로 떨어지는것. margin 이 기준이 아님.*/
+        }
+        #spadeA { z-index: 4;} /* z-index는 숫자가 낮을수록 하단에 위치. 높은것이 제일 앞에 보인다. */
+        #spade2 { z-index: 3;}
+        #spade3 { z-index: 2;}
+        #spade7 { z-index: 1;}
+    </style>
+</head>
+<body>
+    <h3>z-index 스타일 프로퍼티</h3><hr>
+    <div>
+        <button id="resetbtn" type="button">reset</button>
+    </div>
+    <div>
+        <img src="spade-A.png" alt="스페이드A" id="spadeA" width="100" height="140">
+        <img src="spade-2.png" alt="스페이드2" id="spade2" width="100" height="140">
+        <img src="spade-3.png" alt="스페이드3" id="spade3" width="100" height="140">
+        <img src="spade-7.png" alt="스페이드7" id="spade7" width="100" height="140">
+    </div>
+    
+    <script> //script태그가 body위에 있으면 querySelector가 img요소를 찾지 못함. 따라서 dom이 먼저 로딩된 후 script를 실행.
+        function reset(){
+            let cards = document.querySelectorAll('img');
+            for(let i = 0; i < cards.length; i++){
+                cards[i].style.cssText = `left: ${0}px; top: ${20}px;`;
+            }
+        }
+        let btn = document.getElementById('resetbtn');
+        btn.onclick = reset;
+
+
+        function unFold(){
+            let l = 210;
+            let t = 170; 
+            let cards = document.querySelectorAll('img'); //img태그를 가져오는데 순서는 위에서부터 아래로 가져옴. return값은 NodeList. Array가 아님.
+            for(let i = 0; i < cards.length; i++){
+                cards[i].style.cssText = `left: ${l}px; top: ${t}px;`;
+                l -= 70;
+                t -= 50;
+            }
+        }
+        let card = document.getElementById('spadeA');
+        card.onclick = unFold;
+    </script>
+</body>
+</html>

@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>callback3</title>
     <script>
-        function callThreeTimes(callback){
-            for (let i = 0; i < 3; i++) {
-                callback(i)
+        let n = 20;
+        function callThreeTimes(n, callback){
+            for (let i = 0; i < n; i++) {
+                callback(i);
             }
         }
         function print(res) { //callback매개변수 자리에 익명함수 얘 가 넘어감.
             console.log(`for문의 i : ${res}`);
         }
-        callThreeTimes(print);
+        callThreeTimes(n, print);
     </script>
 </head>
 <body>

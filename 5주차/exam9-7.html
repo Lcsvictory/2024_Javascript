@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이벤트 디폴트 행동 취소</title>
+    <style>
+        body {
+            user-select: none;
+        }
+    </style>
     <script>
         function query() {
             let result = confirm("이동하시겠습니까?")
@@ -11,7 +16,13 @@
         }
 
         function noAction(d){
-            d.preventDefault();
+            console.dir(this)
+            if (this.checked) {
+                console.log("체크됨");
+                d.preventDefault();
+            }
+            
+            
         }
     </script>
 </head>

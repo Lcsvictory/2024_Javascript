@@ -9,6 +9,7 @@
             let sel = document.getElementById('fruits');
             let img = document.getElementById('fruitsImage');
             img.src = sel.options[sel.selectedIndex].value;
+            /*img.src = sel[sel.selectedIndex].value;*/
             
         }
     </script>
@@ -16,13 +17,13 @@
 <body>
     <h3>과일을 선택하며 이미지가 나옵니다.</h3><hr>
     <p>과일을 선택하면 이미지가 출력됨.</p>
-    <from>
+    <form>
         <select id="fruits" onchange="drawImage()">
             <option value="media/strawberry.png">딸기</option>
             <option value="media/banana.png">바나나</option>
             <option value="media/apple.png">사과</option>
         </select>
         <img id="fruitsImage" src="media/strawberry.png" alt="과일 이미지">
-    </from>
+    </form>
 </body>
 </html>

@@ -6,14 +6,18 @@
     <title>Document</title>
     <style>
         body{
-            background-color : black;
+            background-color : white;
         }
 
-        #mylist li:nth-of-type(1){
+        #mylist li:nth-child(1){ /* 부모의 자식이 div이면서 첫번째 일 때만 적용한다. */
             color:lightblue;
 
         }
-        #mylist li:nth-of-type(1):hover{
+        #mylist div:nth-of-type(1){ /* 동일한 자식들 중에서 n번째 자식에게 적용. */
+            color:red;
+
+        }
+        /*#mylist li:nth-of-type(1):hover{
             background-color:lightpink;
         }
         #mylist li:nth-of-type(2):hover{
@@ -27,15 +31,24 @@
         }
         ul li:nth-of-type(2) {
             color:yellow !important;
-        }
+        }*/
         
     </style>
 </head>
 <body>
-    <ul id="mylist" class="mulist">
+    <div>temp</div>
+    <!-- <ul id="mylist" class="mulist">
+        <div>temp</div>
         <li>홍길동</li>
         <li style="color: lightcoral;">일지매</li>
         <li>임꺽정</li>
+    </ul> -->
+    <ul id="mylist">
+        <li>첫 번째 li</li>
+        <div>첫 번째 div</div>
+        <li>두 번째 li</li>
+        <div>두 번째 div</div>
+        <p>첫 번째 p</p>
     </ul>
 </body>
 </html>

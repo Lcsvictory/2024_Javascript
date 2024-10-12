@@ -22,8 +22,8 @@
     }
 
     let computer = Math.ceil(Math.random() * 3); //random함수는 0~1사이의 실수값을 적어냄.
-    /* document.write(`${computer}잘`); */
-    // document.write(Math.ceil(Math.random()))
+    //Math.floor()는 0부터 시작하고, Math.ceil()은 1부터 시작 
+    //floor = 0 ~ n-1, ceil = 1 ~ n
     document.write(`<img src="img/${computer}.png">`);
     document.write(`<img src="img/${gameNum}.png">`);
     if(gameNum == computer){

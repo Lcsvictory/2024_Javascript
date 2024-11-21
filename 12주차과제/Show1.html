@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let toggleBtn = document.querySelector("#toggle");
+            let answers = document.querySelectorAll(".answers");
+            let flag = 0;
+
+            answers.forEach((answer) => {
+                answer.style.visibility  = "hidden";
+                answer.style.color = "blue";
+            });
+            toggleBtn.addEventListener("click", function(e) {
+                if (flag == 0) {
+                    answers.forEach((answer) => {
+                        answer.style.visibility  = "visible";
+                        flag = 1;
+                    })
+                } else {
+                    answers.forEach((answer) => {
+                        answer.style.visibility  = "hidden";
+                        flag = 0;
+                    })
+                }
+                
+            })
+        })
+        
+    </script> 
+</head>
+<body>
+    <h3>다음 빈 곳에 숨은 단어? <input type="button" value="show/hide" id="toggle"></h3>
+    <hr>
+    <ul>
+    <li>I (<span class="answers">love</span>) you.</li>
+    <li>CSS is Cascading (<span class="answers">Style</span>) Sheet.</li>
+    <li>응답하라 (<span class="answers">1988</span>).</li>
+    </ul>
+</body>
+</html>

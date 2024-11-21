@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(function() {
+            $('#insert').on('click', function(e) {
+                $("div p:contains('내용1')").before("<p><button type='button'>버튼 삽입</button></p>");
+                $("div p:contains('내용1')").css("backgroundColor", "yellow");
+            })
+            $('#toggle').on('dblclick', function(e) {
+                if ($("div p:contains('내용2')").hasClass('hidden')){
+                    $("div p:contains('내용2')").css("visibility", "visible").removeClass('hidden');
+                }else {
+                    $("div p:contains('내용2')").css("visibility", "hidden").addClass('hidden');
+                }
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" id="insert">클릭하면 버튼 삽입</button>
+        <p>내용1</p>
+        <button type="button" id="toggle">더블클릭하면 내용2 토글</button>
+        <p>내용2</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>슬라이드 연습</title>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        .slide ul {
+            width: 8000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 0;
+        }
+        .slide ul li {
+            display: inline-block;
+        }
+        #back {
+            position: absolute;
+            opacity: 0.3;
+            top: 250px;
+            left: 0;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #next {
+            position: absolute;
+            opacity: 0.3;
+            top: 250px;
+            right: 0;
+            cursor: pointer;
+            z-index: 1;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            let medias;
+            let media_count;
+            let media_position = 1;
+
+            medias = $(".slide ul");
+            media_count = medias.children().length;
+
+            $("#back").on("click", function() {
+                back();
+            })
+            $("#next").on("click", function() {
+                next();
+            })
+
+            function back() {
+                if (1<media_position) { //현재 포지션이 1보단 크다
+                    medias.animate({left:"+=1000px"});
+                    media_position--;
+                }else {//현재 포지션이 1이다. 즉 가장 왼쪽이다.
+                    medias.animate({left:"-=7000px"});
+                    media_position = 8;
+                }
+            }
+            function next() {
+                if (media_count > media_position) { //현재 포지션이 최대값보단 작다.
+                    medias.animate({ left: "-=1000px" });
+                    media_position++;
+                } else { //현재 포지션이 최대값이다. 즉 가장 오른쪽이다.
+                    medias.animate({ left: "+=7000px" });
+                    media_position = 1;
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="slide">
+        <img id="back" src="media/back.gif" alt="" title="이전버튼" width="100">
+        <ul>
+            <li><img src="media/img1.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img2.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img3.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img4.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img5.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img6.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img7.PNG" alt="" width="1000" height="600"></li>
+            <li><img src="media/img8.PNG" alt="" width="1000" height="600"></li>
+        </ul>
+        <img id="next" src="media/next.gif" alt="" title="다음버튼" width="100">
+    </div>
+</body>
+</html>

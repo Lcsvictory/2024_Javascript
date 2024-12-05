@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Student {
+            constructor(name,g1,g2,g3,g4){
+                this.name = name;
+                this.g1 = g1;
+                this.g2 = g2;
+                this.g3 = g3;
+                this.g4 = g4;
+            }
+            getSum() {
+                return this.g1 + this.g2 + this.g3 + this.g4;
+            }
+            getAverage() {
+                return this.getSum() / 4;
+            }
+            toString() {
+                return `${this.name} \t ${this.getSum()} \t ${this.getAverage().toFixed(2)}`;
+            }
+        }
+
+        const students = [];
+        students.push(new Student('구름', 87, 98, 88, 90));
+        students.push(new Student('별이', 92, 98, 96, 88));
+        students.push(new Student('겨울', 76, 96, 94, 86));
+        students.push(new Student('바다', 98, 52, 98, 92));
+        
+        let output = "이름 \t 총점 \t 평균\n";
+        for (let student of students){
+            output += student.toString() + '\n';
+        }
+        document.write(`<pre>${output}</pre>`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

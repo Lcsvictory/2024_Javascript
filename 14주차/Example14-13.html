@@ -8,7 +8,8 @@
         crossorigin="anonymous"></script>
     <script>
         $(function() {
-            $("#btn1").data({"text":"javascript"}).on({"mouseover":overFunc, "mouseout":outFunc});
+            //$("#btn1").data({"text":"javascript"}).on({"mouseover":overFunc, "mouseout":outFunc});
+            $("#btn1").data({"text":"javascript"}).hover(overFunc, outFunc);
             $("#btn2").data({"text":"welcome!"}).on({"mouseover":overFunc, "mouseout":outFunc});
 
         })

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let toggleHide = null;
+            let toggleBtn = document.querySelector("#toggle");
+            toggleBtn.addEventListener("mouseover", function() {
+                if (toggleHide) {return};
+                const h = document.querySelector("h1");
+                toggleHide = setInterval(function() {
+                    if (document.body.contains(h)) {
+                        console.log("remove실행")
+                        document.body.removeChild(h);
+                    } else {
+                        console.log("append실행")
+                        document.body.appendChild(h);
+                    }
+                    
+                }, 500)
+            })
+            toggleBtn.addEventListener("mouseout",function() {
+                clearInterval(toggleHide);
+                toggleHide = null;
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <p id="toggle">이 문장에 마우스롤 올리면 h1객체가 깜빡거립니다.</p>
+    <h1>제거 대상 문서 객체</h1>
+    
+</body>
+</html>

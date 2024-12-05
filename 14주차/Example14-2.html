@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.createElement("p");
+            const news = document.querySelector(".newsContent");
+            header.textContent = "문서 객체 동적으로 생성하기";
+            header.style.color = 'white';
+            header.style.backgroundColor = 'black';
+            header.style.fontSize = '20px';
+            news.appendChild(header)
+        })
+    </script>
+    <style>
+        body .newsContent{
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <h1>use appendChild</h1>
+    <div class="newsContent">
+
+    </div>
+</body>
+</html>
